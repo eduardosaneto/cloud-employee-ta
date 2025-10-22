@@ -12,12 +12,12 @@ export default function LoginPage() {
   return (
     <div className='flex w-full flex-1 flex-col items-center justify-center gap-2 px-8'>
       <Card className='w-full max-w-md'>
-        <CardBody className='p-4'>
+        <CardBody className='overflow-hidden'>
           <Tabs
-            fullWidth
             size='md'
             selectedKey={selectedTab}
             onSelectionChange={(key) => setSelectedTab(key as string)}
+            classNames={{ tabList: 'justify-center' }}
           >
             <Tab key='login' title='Sign In'>
               <form action={login} className='flex flex-col gap-4 pt-4'>
