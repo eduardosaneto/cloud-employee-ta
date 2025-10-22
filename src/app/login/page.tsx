@@ -21,7 +21,7 @@ export default function LoginPage() {
             classNames={{ 
               base: 'w-full flex justify-center',
               tabList: 'flex justify-center', 
-              tabContent: 'hidden',
+              tabContent: '!hidden',
             }}
           >
             <Tab key='login' title='Sign In'>
