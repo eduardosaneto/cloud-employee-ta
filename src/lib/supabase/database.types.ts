@@ -36,17 +36,17 @@ export interface Database {
         }
         Relationships: [
           {
-            foreignKeyName: "buyer_personas_icp_id_fkey"
-            columns: ["icp_id"]
-            referencedRelation: "icps"
-            referencedColumns: ["id"]
+            foreignKeyName: 'buyer_personas_icp_id_fkey'
+            columns: ['icp_id']
+            referencedRelation: 'icps'
+            referencedColumns: ['id']
           },
           {
-            foreignKeyName: "buyer_personas_user_id_fkey"
-            columns: ["user_id"]
-            referencedRelation: "users"
-            referencedColumns: ["id"]
-          }
+            foreignKeyName: 'buyer_personas_user_id_fkey'
+            columns: ['user_id']
+            referencedRelation: 'users'
+            referencedColumns: ['id']
+          },
         ]
       }
       companies: {
@@ -76,11 +76,11 @@ export interface Database {
         }
         Relationships: [
           {
-            foreignKeyName: "companies_user_id_fkey"
-            columns: ["user_id"]
-            referencedRelation: "users"
-            referencedColumns: ["id"]
-          }
+            foreignKeyName: 'companies_user_id_fkey'
+            columns: ['user_id']
+            referencedRelation: 'users'
+            referencedColumns: ['id']
+          },
         ]
       }
       icps: {
@@ -125,17 +125,17 @@ export interface Database {
         }
         Relationships: [
           {
-            foreignKeyName: "icps_company_id_fkey"
-            columns: ["company_id"]
-            referencedRelation: "companies"
-            referencedColumns: ["id"]
+            foreignKeyName: 'icps_company_id_fkey'
+            columns: ['company_id']
+            referencedRelation: 'companies'
+            referencedColumns: ['id']
           },
           {
-            foreignKeyName: "icps_user_id_fkey"
-            columns: ["user_id"]
-            referencedRelation: "users"
-            referencedColumns: ["id"]
-          }
+            foreignKeyName: 'icps_user_id_fkey'
+            columns: ['user_id']
+            referencedRelation: 'users'
+            referencedColumns: ['id']
+          },
         ]
       }
       prospects: {
@@ -165,11 +165,11 @@ export interface Database {
         }
         Relationships: [
           {
-            foreignKeyName: "prospects_user_id_fkey"
-            columns: ["user_id"]
-            referencedRelation: "users"
-            referencedColumns: ["id"]
-          }
+            foreignKeyName: 'prospects_user_id_fkey'
+            columns: ['user_id']
+            referencedRelation: 'users'
+            referencedColumns: ['id']
+          },
         ]
       }
       qualifications: {
@@ -205,23 +205,23 @@ export interface Database {
         }
         Relationships: [
           {
-            foreignKeyName: "qualifications_icp_id_fkey"
-            columns: ["icp_id"]
-            referencedRelation: "icps"
-            referencedColumns: ["id"]
+            foreignKeyName: 'qualifications_icp_id_fkey'
+            columns: ['icp_id']
+            referencedRelation: 'icps'
+            referencedColumns: ['id']
           },
           {
-            foreignKeyName: "qualifications_prospect_id_fkey"
-            columns: ["prospect_id"]
-            referencedRelation: "prospects"
-            referencedColumns: ["id"]
+            foreignKeyName: 'qualifications_prospect_id_fkey'
+            columns: ['prospect_id']
+            referencedRelation: 'prospects'
+            referencedColumns: ['id']
           },
           {
-            foreignKeyName: "qualifications_user_id_fkey"
-            columns: ["user_id"]
-            referencedRelation: "users"
-            referencedColumns: ["id"]
-          }
+            foreignKeyName: 'qualifications_user_id_fkey'
+            columns: ['user_id']
+            referencedRelation: 'users'
+            referencedColumns: ['id']
+          },
         ]
       }
     }

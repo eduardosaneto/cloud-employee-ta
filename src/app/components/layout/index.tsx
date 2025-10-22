@@ -1,47 +1,47 @@
-"use client";
+'use client'
 
-import type { User } from "@supabase/supabase-js";
-import Link from "next/link";
-import { Toaster } from "sonner";
-import { Button } from "@heroui/react";
-import { signOut } from "../../auth/actions";
-import { Providers } from "../../providers";
+import type { User } from '@supabase/supabase-js'
+import Link from 'next/link'
+import { Toaster } from 'sonner'
+import { Button } from '@heroui/react'
+import { signOut } from '../../auth/actions'
+import { Providers } from '../../providers'
 
 function SignOutButton() {
   return (
     <form action={signOut}>
-      <Button type="submit" variant="ghost" color="default">
+      <Button type='submit' variant='ghost' color='default'>
         Sign Out
       </Button>
     </form>
-  );
+  )
 }
 
 export function Layout({
   children,
   user,
 }: {
-  children: React.ReactNode;
-  user: User | null;
+  children: React.ReactNode
+  user: User | null
 }) {
   return (
     <Providers>
-      <nav className="w-full flex justify-center border-b border-divider h-16">
-        <div className="w-full max-w-4xl flex justify-between items-center p-3 text-sm">
-          <Link href="/" className="font-bold text-lg">
+      <nav className='border-divider flex h-16 w-full justify-center border-b'>
+        <div className='flex w-full max-w-4xl items-center justify-between p-3 text-sm'>
+          <Link href='/' className='text-lg font-bold'>
             The AI Qualifier
           </Link>
           {user ? (
-            <div className="flex items-center gap-4">
-              <span className="text-default-600">{user.email}</span>
+            <div className='flex items-center gap-4'>
+              <span className='text-default-600'>{user.email}</span>
               <SignOutButton />
             </div>
           ) : (
-            <div className="flex items-center gap-4">
-              <Button as={Link} href="/login" color="primary" variant="light">
+            <div className='flex items-center gap-4'>
+              <Button as={Link} href='/login' color='primary' variant='light'>
                 Login
               </Button>
-              <Button as={Link} href="/login" color="primary" variant="light">
+              <Button as={Link} href='/login' color='primary' variant='light'>
                 Signup
               </Button>
             </div>
@@ -49,8 +49,8 @@ export function Layout({
         </div>
       </nav>
 
-      <main className="w-full max-w-4xl mx-auto p-3 py-6">{children}</main>
-      <Toaster position="top-right" theme="dark" />
+      <main className='mx-auto w-full max-w-4xl p-3 py-6'>{children}</main>
+      <Toaster position='top-right' theme='dark' />
     </Providers>
-  );
+  )
 }

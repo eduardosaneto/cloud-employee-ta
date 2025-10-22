@@ -1,46 +1,46 @@
-"use client";
+'use client'
 
-import { useFormState, useFormStatus } from "react-dom";
-import { completeOnboarding } from "./actions";
-import { Button, Card, CardBody, CardHeader, Input } from "@heroui/react";
+import { useFormState, useFormStatus } from 'react-dom'
+import { completeOnboarding } from './actions'
+import { Button, Card, CardBody, CardHeader, Input } from '@heroui/react'
 
 function SubmitButton() {
-  const { pending } = useFormStatus();
+  const { pending } = useFormStatus()
   return (
-    <Button type="submit" color="primary" isLoading={pending} className="mt-4">
-      {pending ? "Generating ICP..." : "Generate My ICP"}
+    <Button type='submit' color='primary' isLoading={pending} className='mt-4'>
+      {pending ? 'Generating ICP...' : 'Generate My ICP'}
     </Button>
-  );
+  )
 }
 
 export default function OnboardingPage() {
-  const initialState = { message: '' };
-  const [state, formAction] = useFormState(completeOnboarding, initialState);
+  const initialState = { message: '' }
+  const [state, formAction] = useFormState(completeOnboarding, initialState)
 
   return (
-    <div className="flex-1 flex flex-col items-center justify-center p-4">
-      <Card className="w-full max-w-md p-4">
-        <CardHeader className="text-center">
-          <h1 className="text-3xl font-bold mb-2">
+    <div className='flex flex-1 flex-col items-center justify-center p-4'>
+      <Card className='w-full max-w-md p-4'>
+        <CardHeader className='text-center'>
+          <h1 className='mb-2 text-3xl font-bold'>
             Welcome to The AI Qualifier
           </h1>
-          <p className="text-default-600">
+          <p className='text-default-600'>
             Let&apos;s generate your Ideal Customer Profile (ICP).
           </p>
         </CardHeader>
         <CardBody>
-          <form action={formAction} className="flex flex-col">
+          <form action={formAction} className='flex flex-col'>
             <Input
-              id="domain"
-              name="domain"
-              label="Your company domain"
-              placeholder="e.g., yourcompany.com"
+              id='domain'
+              name='domain'
+              label='Your company domain'
+              placeholder='e.g., yourcompany.com'
               isRequired
               description="We'll analyze your site to understand what you do."
             />
             <SubmitButton />
             {state?.message && (
-              <p className="mt-4 text-center text-danger-600 bg-danger-50 p-3 rounded-lg border border-danger-200">
+              <p className='text-danger-600 bg-danger-50 border-danger-200 mt-4 rounded-lg border p-3 text-center'>
                 {state.message}
               </p>
             )}
@@ -48,5 +48,5 @@ export default function OnboardingPage() {
         </CardBody>
       </Card>
     </div>
-  );
+  )
 }
