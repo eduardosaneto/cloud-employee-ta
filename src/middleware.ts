@@ -1,11 +1,11 @@
 import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 
-export const hasEnvVars =
+const hasEnvVars =
   process.env.NEXT_PUBLIC_SUPABASE_URL &&
   process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
 
-export async function updateSession(request: NextRequest) {
+const updateSession = async (request: NextRequest) => {
   let supabaseResponse = NextResponse.next({
     request: {
       headers: request.headers,
@@ -39,19 +39,48 @@ export async function updateSession(request: NextRequest) {
     }
   );
 
-  await supabase.auth.getSession()
+  await supabase.auth.getSession();
 
   const {
     data: { user },
-  } = await supabase.auth.getUser()
+  } = await supabase.auth.getUser();
 
-  if (!user && request.nextUrl.pathname.startsWith('/dashboard')) {
-    return NextResponse.redirect(new URL('/login', request.url))
+  const { pathname } = request.nextUrl;
+
+  // if (
+  //   !user &&
+  //   (pathname.startsWith("/dashboard") || pathname === "/onboarding")
+  // ) {
+  //   return NextResponse.redirect(new URL("/login", request.url));
+  // }
+
+  if (user && (pathname === "/login" || pathname === "/signup")) {
+    return NextResponse.redirect(new URL("/dashboard", request.url));
   }
 
-  if (user && (request.nextUrl.pathname === '/login' || request.nextUrl.pathname === '/signup')) {
-    return NextResponse.redirect(new URL('/dashboard', request.url))
+  if (user) {
+    // const { data: company, error } = await supabase
+    //   .from("companies")
+    //   .select("id")
+    //   .eq("user_id", user.id)
+    //   .single();
+
+    // const hasOnboarded = !!company;
+
+    // if (!hasOnboarded && pathname !== "/onboarding") {
+    //   return NextResponse.redirect(new URL("/onboarding", request.url));
+    // }
+
+    // if (hasOnboarded && pathname === "/onboarding") {
+    //   return NextResponse.redirect(new URL("/dashboard", request.url));
+    // }
   }
 
-  return supabaseResponse
-}
+  return supabaseResponse;
+};
+
+export const config = {
+  matcher: ["/((?!_next/static|_next/image|favicon.ico|auth/callback).*)"],
+};
+
+export default updateSession;

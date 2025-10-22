@@ -1,0 +1,17 @@
+# Dependencies
+node_modules
+.next
+.supabase
+
+# Build outputs
+dist
+build
+out
+
+# Env
+.env.local
+
+# Lock files
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
