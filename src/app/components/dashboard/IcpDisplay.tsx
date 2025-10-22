@@ -31,7 +31,7 @@ function DetailList({
 export default function IcpDisplay({ icp }: { icp: IcpWithPersonas }) {
   return (
     <Card className='sticky top-6'>
-      <CardHeader>
+      <CardHeader className="flex flex-col">
         <h2 className='text-xl font-semibold'>
           {icp.title || 'Ideal Customer Profile'}
         </h2>
