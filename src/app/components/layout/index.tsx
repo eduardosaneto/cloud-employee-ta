@@ -26,8 +26,8 @@ export function Layout({
 }) {
   return (
     <Providers>
-      <nav className='border-divider flex h-16 w-full justify-center border-b'>
-        <div className='flex w-full max-w-4xl items-center justify-between p-3 text-sm'>
+      <nav className='w-full flex justify-center border-b border-divider h-16'>
+        <div className='w-full max-w-4xl flex justify-between items-center p-3 text-sm'>
           <Link href='/' className='text-lg font-bold'>
             The AI Qualifier
           </Link>

@@ -23,7 +23,7 @@ export default async function Layout({
 
   return (
     <html lang='en' className='dark'>
-      <body className={`${inter.className} bg-background text-foreground`}>
+      <body className={`${inter.className} min-h-screen bg-background text-foreground`}>
         <ClientLayout user={user}>{children}</ClientLayout>
       </body>
     </html>
