@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# The AI Qualifier
 
-## Getting Started
+**The AI Qualifier** is a production-ready prototype built for a technical assignment. This full-stack application allows a user to generate an Ideal Customer Profile (ICP) for their company by analyzing their domain. It then allows them to qualify a list of prospect domains against that ICP, providing a score and reasoning for each.
 
-First, run the development server:
+**[Link to Live Hosted Application](https://your-project-url.vercel.app/)**
+
+**[Link to Video Walkthrough (Loom)](https://www.loom.com/...)**
+
+---
+
+## Tech Stack
+
+- **Framework:** Next.js 14 (App Router)
+- **Backend:** Node.js (via Next.js Server Actions)
+- **Database:** Supabase (PostgreSQL)
+- **Authentication:** Supabase Auth (Cookie-based SSR)
+- **AI:** OpenAI API (GPT-4-Turbo & GPT-3.5-Turbo)
+- **UI:** HeroUI (on top of Tailwind CSS)
+- **Schema:** Supabase Migrations
+- **Scraping:** `cheerio` (server-side)
+- **Deployment:** Vercel
+- **CI/CD:** GitHub Actions (Code Quality) & Vercel (Deployment)
+- **Formatting:** Prettier
+
+---
+
+## Features
+
+- **Secure Authentication:** Full auth flow (Sign up, Sign in, Sign out) with email/password.
+- **Protected Routes:** Middleware protects all app routes and handles onboarding logic.
+- **AI-Powered Onboarding:**
+  - User submits their company domain.
+  - The app scrapes the domain, summarizes its content (via GPT-3.5), and generates a detailed ICP (via GPT-4-Turbo JSON Mode).
+  - All data is saved in a normalized PostgreSQL database.
+- **Prospect Qualification:**
+  - Users can submit a comma-separated list of prospect domains.
+  - The app uses an asynchronous "fire-and-forget" pattern to process each domain in the background.
+  - Each prospect is scraped, and its content is compared against the user's ICP using GPT-4-Turbo.
+  - Results (score, reasoning, status) are saved and displayed in the dashboard.
+- **Interactive Dashboard:**
+  - View the complete, generated ICP.
+  - View the list of qualified prospects with their status (pending, completed, failed).
+  - Click "View Reasoning" to open a modal and inspect the AI's qualification logic.
+
+---
+
+## Local Setup Instructions
+
+### 1. Prerequisites
+
+- Node.js (v18 or later)
+- `npm` (or `pnpm`/`yarn`)
+- A Supabase account (free tier)
+- An OpenAI API key
+
+### 2. Clone Repository
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone [https://github.com/your-username/ai-qualifier.git](https://github.com/your-username/ai-qualifier.git)
+cd ai-qualifier
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 3. Run the project
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Install dependencies:** npm install
+- **Generate env local:** cp .env.sample .env
+- **Install suplabase cli**
+  - npm install supabase --save-dev
+  - npx supabase login
+  - npx supabase link --project-ref PROJECT_ID
+  - - - (You can find your PROJECT_ID in your Supabase project's URL: https://supabase.com/dashboard/project/PROJECT_ID)
+- **Running migration:** npx supabase db push
+- **Run Project:** npm run dev
