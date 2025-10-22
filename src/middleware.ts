@@ -47,33 +47,33 @@ const updateSession = async (request: NextRequest) => {
 
   const { pathname } = request.nextUrl;
 
-  // if (
-  //   !user &&
-  //   (pathname.startsWith("/dashboard") || pathname === "/onboarding")
-  // ) {
-  //   return NextResponse.redirect(new URL("/login", request.url));
-  // }
+  if (
+    !user &&
+    (pathname.startsWith("/dashboard") || pathname === "/onboarding")
+  ) {
+    return NextResponse.redirect(new URL("/login", request.url));
+  }
 
   if (user && (pathname === "/login" || pathname === "/signup")) {
     return NextResponse.redirect(new URL("/dashboard", request.url));
   }
 
   if (user) {
-    // const { data: company, error } = await supabase
-    //   .from("companies")
-    //   .select("id")
-    //   .eq("user_id", user.id)
-    //   .single();
+    const { data: company, error } = await supabase
+      .from("companies")
+      .select("id")
+      .eq("user_id", user.id)
+      .single();
 
-    // const hasOnboarded = !!company;
+    const hasOnboarded = !!company;
 
-    // if (!hasOnboarded && pathname !== "/onboarding") {
-    //   return NextResponse.redirect(new URL("/onboarding", request.url));
-    // }
+    if (!hasOnboarded && pathname !== "/onboarding") {
+      return NextResponse.redirect(new URL("/onboarding", request.url));
+    }
 
-    // if (hasOnboarded && pathname === "/onboarding") {
-    //   return NextResponse.redirect(new URL("/dashboard", request.url));
-    // }
+    if (hasOnboarded && pathname === "/onboarding") {
+      return NextResponse.redirect(new URL("/dashboard", request.url));
+    }
   }
 
   return supabaseResponse;
