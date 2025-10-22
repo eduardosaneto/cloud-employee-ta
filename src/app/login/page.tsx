@@ -17,7 +17,12 @@ export default function LoginPage() {
             size='md'
             selectedKey={selectedTab}
             onSelectionChange={(key) => setSelectedTab(key as string)}
-            classNames={{ tabList: 'justify-center' }}
+            aria-label="Login and Sign-up tabs"
+            classNames={{ 
+              base: 'w-full flex justify-center',
+              tabList: 'flex justify-center', 
+              tabContent: 'hidden',
+            }}
           >
             <Tab key='login' title='Sign In'>
               <form action={login} className='flex flex-col gap-4 pt-4'>
