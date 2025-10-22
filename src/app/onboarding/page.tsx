@@ -26,7 +26,7 @@ export default function OnboardingPage() {
   return (
     <div className='flex flex-1 flex-col items-center justify-center p-4'>
       <Card className='w-full max-w-md p-4'>
-        <CardHeader className='text-center'>
+        <CardHeader className='text-center flex flex-col'>
           <h1 className='mb-2 text-3xl font-bold'>
             Welcome to The AI Qualifier
           </h1>
