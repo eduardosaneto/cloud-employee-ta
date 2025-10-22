@@ -57,7 +57,7 @@
 
 ```bash
 git clone [https://github.com/your-username/ai-qualifier.git](https://github.com/your-username/ai-qualifier.git)
-cd ai-qualifier
+cd cloud-employee-ta
 ```
 
 ### 3. Run the project
