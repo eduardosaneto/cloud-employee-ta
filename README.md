@@ -4,7 +4,7 @@
 
 **[Link to Live Hosted Application](https://cloud-employee-ta.vercel.app/)**
 
-**[Link to Video Walkthrough (Loom)](https://www.loom.com/...)**
+**[Link to Video Walkthrough (Loom)](https://www.loom.com/share/f3794ec462034c9e8b64c7791a496ff0?sid=f208f2df-553f-4c34-a932-1a56f59dec3e)**
 
 ---
 
