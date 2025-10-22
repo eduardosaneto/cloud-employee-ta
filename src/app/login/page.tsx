@@ -12,7 +12,7 @@ export default function LoginPage() {
   return (
     <div className='flex w-full flex-1 flex-col items-center justify-center gap-2 px-8'>
       <Card className='w-full max-w-md'>
-        <CardBody className='overflow-hidden'>
+        <CardBody className='p-4'>
           <Tabs
             fullWidth
             size='md'
