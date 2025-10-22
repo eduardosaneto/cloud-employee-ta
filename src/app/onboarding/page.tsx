@@ -7,7 +7,13 @@ import { Button, Card, CardBody, CardHeader, Input } from '@heroui/react'
 function SubmitButton() {
   const { pending } = useFormStatus()
   return (
-    <Button type='submit' color='primary' isLoading={pending} className='mt-4'>
+    <Button
+      type='submit'
+      color='primary'
+      isLoading={pending}
+      variant='shadow'
+      className='border-primary-300 shadow-primary/30 mt-4 border-2 font-medium shadow-lg hover:-translate-y-px'
+    >
       {pending ? 'Generating ICP...' : 'Generate My ICP'}
     </Button>
   )

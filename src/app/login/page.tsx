@@ -35,7 +35,12 @@ export default function LoginPage() {
                   placeholder='••••••••'
                   isRequired
                 />
-                <Button color='primary' type='submit' className='mt-2'>
+                <Button
+                  color='primary'
+                  type='submit'
+                  variant='bordered'
+                  className='border-default-400 mt-2 border-2 font-medium shadow-sm hover:-translate-y-px hover:shadow-md'
+                >
                   Sign In
                 </Button>
               </form>
@@ -56,7 +61,12 @@ export default function LoginPage() {
                   placeholder='••••••••'
                   isRequired
                 />
-                <Button variant='bordered' type='submit' className='mt-2'>
+                <Button
+                  color='primary'
+                  variant='bordered'
+                  type='submit'
+                  className='border-default-400 mt-2 border-2 font-medium shadow-sm hover:-translate-y-px hover:shadow-md'
+                >
                   Sign Up
                 </Button>
               </form>

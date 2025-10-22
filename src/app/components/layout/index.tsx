@@ -10,7 +10,12 @@ import { Providers } from '../../providers'
 function SignOutButton() {
   return (
     <form action={signOut}>
-      <Button type='submit' variant='ghost' color='default'>
+      <Button
+        type='submit'
+        variant='bordered'
+        color='default'
+        className='border-default-400 border-2 font-medium shadow-sm hover:-translate-y-px hover:shadow-md'
+      >
         Sign Out
       </Button>
     </form>
@@ -26,8 +31,8 @@ export function Layout({
 }) {
   return (
     <Providers>
-      <nav className='w-full flex justify-center border-b border-divider h-16'>
-        <div className='w-full max-w-4xl flex justify-between items-center p-3 text-sm'>
+      <nav className='border-divider flex h-16 w-full justify-center border-b'>
+        <div className='flex w-full max-w-4xl items-center justify-between p-3 text-sm'>
           <Link href='/' className='text-lg font-bold'>
             The AI Qualifier
           </Link>

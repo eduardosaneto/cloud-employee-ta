@@ -13,7 +13,8 @@ function SubmitButton() {
       type='submit'
       color='primary'
       isLoading={pending}
-      className='w-full sm:w-auto'
+      variant='shadow'
+      className='border-primary-300 shadow-primary/30 w-full border-2 font-medium shadow-lg hover:-translate-y-px sm:w-auto'
     >
       {pending ? 'Qualifying...' : 'Start Qualification'}
     </Button>
