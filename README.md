@@ -2,7 +2,7 @@
 
 **The AI Qualifier** is a production-ready prototype built for a technical assignment. This full-stack application allows a user to generate an Ideal Customer Profile (ICP) for their company by analyzing their domain. It then allows them to qualify a list of prospect domains against that ICP, providing a score and reasoning for each.
 
-**[Link to Live Hosted Application](https://your-project-url.vercel.app/)**
+**[Link to Live Hosted Application](https://cloud-employee-ta.vercel.app/)**
 
 **[Link to Video Walkthrough (Loom)](https://www.loom.com/...)**
 
