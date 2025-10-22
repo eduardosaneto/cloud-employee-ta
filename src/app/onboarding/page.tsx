@@ -25,7 +25,7 @@ export default function OnboardingPage() {
             Welcome to The AI Qualifier
           </h1>
           <p className="text-default-600">
-            Let's generate your Ideal Customer Profile (ICP).
+            Let&apos;s generate your Ideal Customer Profile (ICP).
           </p>
         </CardHeader>
         <CardBody>
