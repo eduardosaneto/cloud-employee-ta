@@ -70,7 +70,6 @@ export default function LoginPage() {
                 </Button>
               </form>
             </Tab>
-            <span/>
           </Tabs>
           {message && (
             <p className='bg-danger-50 text-danger-600 border-danger-200 mt-4 rounded-lg border p-4 text-center'>
